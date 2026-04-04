@@ -2,7 +2,7 @@
 
 Projeto para rodar um minibanco pelo terminal, salvando dados com JSON.
 
-Você consegue criar uma conta, fazer login, depositar, sacar e consultar saldo — tudo persistido em um arquivo JSON real usando o módulo `fs` nativo do Node.js.
+Você consegue criar uma conta, fazer login, depositar, sacar e consultar saldo, tudo persistido em um arquivo JSON usando o módulo `fs` nativo do Node.js.
 
 ---
 
