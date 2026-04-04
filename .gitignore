@@ -1,3 +1,6 @@
+# Database local
+database.json
+
 # Logs
 logs
 *.log
