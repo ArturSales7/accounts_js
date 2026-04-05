@@ -26,6 +26,19 @@ function criarConta() {
     .then((answer) => {
       const accountName = answer["accountName"];
 
+      let contas = [];
+      if (fs.existsSync("database.json")) {
+        contas = JSON.parse(fs.readFileSync("database.json"));
+      }
+
+      const contaExistente = contas.find((c) => c.name === accountName);
+
+      if (contaExistente) {
+        console.log(chalk.red("\n✖ Esse nome já está em uso! Tente outro."));
+        criarConta();
+        return;
+      }
+
       inquirer
         .prompt([
           {
@@ -36,11 +49,6 @@ function criarConta() {
         ])
         .then((answer2) => {
           const accountPassword = answer2["accountPassword"];
-
-          let contas = [];
-          if (fs.existsSync("database.json")) {
-            contas = JSON.parse(fs.readFileSync("database.json"));
-          }
 
           contas.push({
             id: contas.length + 1,
